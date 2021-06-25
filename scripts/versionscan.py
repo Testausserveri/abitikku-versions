@@ -12,7 +12,7 @@ versions = {
 
 knownOldestVersion = 217
 latestUrl = "https://static.abitti.fi/usbimg/prod/latest.txt"
-filePath = "versions.json"
+filePath = "public/versions.json"
 
 
 class DateTimeEncoder(json.JSONEncoder):
