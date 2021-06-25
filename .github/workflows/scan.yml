@@ -30,7 +30,7 @@ jobs:
 
       - name: Collect versions and save
         run: |
-         python ./scripts/
+         python scripts/scan.py
          
  
       - name: Commit and Push
