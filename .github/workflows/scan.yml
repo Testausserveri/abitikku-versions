@@ -32,12 +32,7 @@ jobs:
       - name: Install required libraries
         run: |
          python -m pip install requests remotezip
-         
-     
-      - name: Clear old files
-        run: |
-         rm -rf docs/
-         mkdir -p docs/
+
 
       - name: Collect versions and save
         run: |
