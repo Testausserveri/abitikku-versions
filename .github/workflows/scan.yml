@@ -31,7 +31,7 @@ jobs:
       - name: Collect versions and save
         run: |
          ls -la
-         python scripts/scan.py
+         python scripts/versionscan.py
          
  
       - name: Commit and Push
