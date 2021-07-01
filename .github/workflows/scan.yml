@@ -40,12 +40,13 @@ jobs:
          python scripts/versionscan.py
          
  
-      - name: Commit and Push
+      - name: Configure Git and add files
         run: |
             git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git config --local user.name "AntiBitti[bot]"
             git add -A
-      - name: Commit files
+
+      - name: Commit
         id: can_commit
         run: |
               commit_message=$(git commit -m "Updated latest AbiTikku version list" -a | tr -d '\n' || true)
