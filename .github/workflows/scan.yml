@@ -54,5 +54,5 @@ jobs:
 
       - name: Push or leave
         id: nothing_committed
-        if: !contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+        if: false == contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
         run: git push
