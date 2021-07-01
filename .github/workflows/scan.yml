@@ -29,8 +29,6 @@ jobs:
 
       - name: Setup bash
         uses: pkg-src/github-action-git-bash@v1.1
-        with:
-          architecture: x64
 
       - name: Install required libraries
         run: |
