@@ -50,9 +50,8 @@ jobs:
         run: |
               commit_message=$(git commit -m "Updated latest AbiTikku version list" -a | tr -d '\n' || true)
               echo "::set-output name=commit_message::$commit_message"
+
       - name: Push or leave
         id: nothing_committed
-        - if: contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
-          run: echo "Latest version, not committing"
-        - if: !contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
-          run: git push
+        if: !contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+        run: git push
