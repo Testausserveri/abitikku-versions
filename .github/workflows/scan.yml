@@ -42,7 +42,17 @@ jobs:
  
       - name: Commit and Push
         run: |
-         git config --global user.name "AntiBitti[bot]"
-         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-         git add -A
-         git diff-index --quiet HEAD || bash -c "git commit -m "Updated latest AbiTikku version list" && git push"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "AntiBitti[bot]"
+          git add -A
+          - name: Commit files
+            id: can_commit
+            run: |-
+              commit_message=$(git commit -m "Updated latest AbiTikku version list" -a | tr -d '\n' || true)
+              echo "::set-output name=commit_message::$commit_message"
+          - name: Push or leave
+            id: nothing_committed
+            if: contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+            run: echo "Latest version, not committing"
+            if: !contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+            run: git push
