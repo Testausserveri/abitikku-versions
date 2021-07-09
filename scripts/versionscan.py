@@ -78,7 +78,7 @@ for i in range(knownOldestVersion, latestVersion + 5):
     except:
         print(str(i) + ": Failed!")
 
-jsonString = json.dumps(versions, cls=DateTimeEncoder)
+jsonString = json.dumps(versions, cls=DateTimeEncoder, indent=4)
 print(jsonString)
 
 print("Writing to " + filePath)
