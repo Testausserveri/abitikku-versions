@@ -20,6 +20,7 @@ knownOldestVersion = 217
 latestUrl = "https://static.abitti.fi/usbimg/prod/latest.txt"
 releaseNotesUrl = "https://www.abitti.fi/fi/paivitykset/parannukset/digabios-palvelintikku-opiskelijan-tikku/"
 filePath = "docs/versions.json"
+filePathIndented = "docs/versions.pretty.json"
 
 releasePattern = re.compile("((ABITTI|SERVER)[0-9]{4}[A-Z0-9])")
 
@@ -78,10 +79,17 @@ for i in range(knownOldestVersion, latestVersion + 5):
     except:
         print(str(i) + ": Failed!")
 
-jsonString = json.dumps(versions, cls=DateTimeEncoder, indent=4)
+jsonStringIndented = json.dumps(versions, cls=DateTimeEncoder, indent=4)
+jsonString = json.dumps(versions, cls=DateTimeEncoder)
+
 print(jsonString)
 
 print("Writing to " + filePath)
 jsonDump = open(filePath, "w")
 jsonDump.write(jsonString)
+jsonDump.close()
+
+print("Writing to " + filePathIndented)
+jsonDump = open(filePathIndented, "w")
+jsonDump.write(jsonStringIndented)
 jsonDump.close()
