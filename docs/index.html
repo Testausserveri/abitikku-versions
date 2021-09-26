@@ -12,11 +12,10 @@ h1, h2, h3, h4, h5, h6 {
 <script>
 function buildRow(data, tableId) {
   var row = document.createElement("tr");
-  row.insertAdjacentHTML('beforeend', `<td>${data.versionName}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${data.versionName + (data.beta ? " (Beta)" : "")}</td>`);
   row.insertAdjacentHTML('beforeend', `<td>${data.versionCode}</td>`);
   row.insertAdjacentHTML('beforeend', `<td>${new Date(data.releaseDate).toLocaleDateString()}</td>`);
   row.insertAdjacentHTML('beforeend', `<td><a href="${data.url}">Download ${data.url.split("/").pop()}</a></td>`);
-  row.insertAdjacentHTML('beforeend', `<td>${data.beta ? "Yes" : "No"}</td>`);
   return row;
 }
 
@@ -55,7 +54,6 @@ const fetchData = async () => {
         <td title="versionCode">Version code</td>
         <td title="releaseDate">Release date</td>
         <td title="url">Download</td>
-        <td title="beta">Beta</td>
       </tr>
     </table>
   </div>
@@ -67,7 +65,6 @@ const fetchData = async () => {
         <td title="versionCode">Version code</td>
         <td title="releaseDate">Release date</td>
         <td title="url">Download</td>
-        <td title="beta">Beta</td>
       </tr>
       <tr></tr>
     </table>
