@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Abitti version list</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+
+<style>
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 10px;
+}
+</style>
+
+<script>
+function buildRow(data, tableId) {
+  var row = document.createElement("tr");
+  row.insertAdjacentHTML('beforeend', `<td>${data.versionName}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${data.versionCode}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${new Date(data.releaseDate).toLocaleDateString()}</td>`);
+  row.insertAdjacentHTML('beforeend', `<td><a href="${data.url}">Download ${data.url.split("/").pop()}</a></td>`);
+  row.insertAdjacentHTML('beforeend', `<td>${data.beta ? "Yes" : "No"}</td>`);
+  return row;
+}
+
+window.onload = async () => {
+  let data = await fetchData();
+  let koeTable = document.getElementById('koe-table');
+  let ktpTable = document.getElementById('ktp-table');
+  data.koe.reverse().map(item => koeTable.appendChild(buildRow(item)));
+  data.ktp.reverse().map(item => ktpTable.appendChild(buildRow(item)));
+}
+
+const fetchData = async () => {
+  let url = "https://abitikku-versions.testausserveri.fi/versions.json";
+  let data = await fetch(url);
+  if(data.ok) {
+    return await data.json();
+  } else {
+    alert("Error in fetchData()" + data.status);
+  }
+}
+</script>
+</head>
+
+<body style="background:#222;color:#eee">
+  <div style="background:#111;">
+    <h1>Abitti version list</h1>
+    <h2>Get the raw JSON for your application here: <a href="https://abitikku-versions.testausserveri.fi/versions.json">https://abitikku-versions.testausserveri.fi/versions.json</a></h3>
+    <h2><a href="https://www.abitti.fi/fi/paivitykset/parannukset/digabios-palvelintikku-opiskelijan-tikku/">Official changelog</a></h2>
+  </div>
+  <hr style="margin:0">
+  <h3>KOE (student image):</h3>
+  <div class="w3-responsive">
+    <table id="koe-table" class="w3-table w3-bordered">
+      <tr>
+        <td title="versionName">Version name</td>
+        <td title="versionCode">Version code</td>
+        <td title="releaseDate">Release date</td>
+        <td title="url">Download</td>
+        <td title="beta">Beta</td>
+      </tr>
+    </table>
+  </div>
+  <h3>KTP (server image):</h3>
+  <div class="w3-responsive">
+    <table id="ktp-table" class="w3-table w3-bordered">
+      <tr>
+        <td title="versionName">Version name</td>
+        <td title="versionCode">Version code</td>
+        <td title="releaseDate">Release date</td>
+        <td title="url">Download</td>
+        <td title="beta">Beta</td>
+      </tr>
+      <tr></tr>
+    </table>
+  </div>
+</body>
+</html>
