@@ -12,10 +12,12 @@ h1, h2, h3, h4, h5, h6 {
 <script>
 function buildRow(data, tableId) {
   var row = document.createElement("tr");
-  row.insertAdjacentHTML('beforeend', `<td>${data.versionName + (data.beta ? " (Beta)" : "")}</td>`);
-  row.insertAdjacentHTML('beforeend', `<td>${data.versionCode}</td>`);
-  row.insertAdjacentHTML('beforeend', `<td>${new Date(data.releaseDate).toLocaleDateString()}</td>`);
-  row.insertAdjacentHTML('beforeend', `<td><a href="${data.url}">Download ${data.url.split("/").pop()}</a></td>`);
+  row.innerHTML = "<td></td> <td></td> <td></td> <td><a></a></td>";
+  row.children[0].innerText = data.versionName + (data.beta ? " (Beta)" : "");
+  row.children[1].innerText = data.versionCode;
+  row.children[2].innerText = new Date(data.releaseDate).toLocaleDateString();
+  row.children[3].children[0].innerText = "Download " + data.url.split("/").pop();
+  row.children[3].children[0].href = data.url;
   return row;
 }
 
