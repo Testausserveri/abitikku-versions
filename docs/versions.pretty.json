@@ -245,7 +245,7 @@
             "versionCode": 239,
             "releaseDate": "2021-10-29T16:07:06",
             "url": "https://static.abitti.fi/etcher-usb/releases/239/koe-etcher.zip",
-            "beta": true
+            "beta": false
         }
     ]
 }
