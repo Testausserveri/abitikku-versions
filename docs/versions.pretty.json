@@ -15,6 +15,13 @@
             "beta": true
         },
         {
+            "versionName": "SERVER19319",
+            "versionCode": 221,
+            "releaseDate": "2019-08-02T15:14:48",
+            "url": "https://static.abitti.fi/etcher-usb/releases/221/ktp-etcher.zip",
+            "beta": true
+        },
+        {
             "versionName": "SERVER1932K",
             "versionCode": 222,
             "releaseDate": "2019-08-05T14:47:48",
@@ -26,6 +33,13 @@
             "versionCode": 223,
             "releaseDate": "2019-09-10T14:48:10",
             "url": "https://static.abitti.fi/etcher-usb/releases/223/ktp-etcher.zip",
+            "beta": false
+        },
+        {
+            "versionName": "SERVER19458",
+            "versionCode": 224,
+            "releaseDate": "2019-11-05T17:12:20",
+            "url": "https://static.abitti.fi/etcher-usb/releases/224/ktp-etcher.zip",
             "beta": false
         },
         {
@@ -126,6 +140,13 @@
             "versionCode": 220,
             "releaseDate": "2019-05-28T09:58:46",
             "url": "https://static.abitti.fi/etcher-usb/releases/220/koe-etcher.zip",
+            "beta": true
+        },
+        {
+            "versionName": "ABITTI1931L",
+            "versionCode": 221,
+            "releaseDate": "2019-08-02T14:53:16",
+            "url": "https://static.abitti.fi/etcher-usb/releases/221/koe-etcher.zip",
             "beta": true
         },
         {
