@@ -1,6 +1,7 @@
 import json
 import re
 from datetime import datetime
+from dateutil import relativedelta
 
 import remotezip
 import requests
@@ -17,7 +18,7 @@ headers = {
 }
 
 knownOldestVersion = 217
-latestUrl = "https://static.abitti.fi/usbimg/prod/latest.txt"
+#latestUrl = "https://static.abitti.fi/usbimg/prod/latest.txt"
 releaseNotesUrl = "https://www.abitti.fi/fi/paivitykset/parannukset/digabios-palvelintikku-opiskelijan-tikku/"
 filePath = "docs/versions.json"
 filePathIndented = "docs/versions.pretty.json"
@@ -33,8 +34,12 @@ class DateTimeEncoder(json.JSONEncoder):
 
 
 def getLatestVersion():
-    version = requests.get(latestUrl, headers=headers)
-    return int(version.text)
+    # Because abitti's old latest version endpoint is now unavailable, and updates
+    # usually come within a month or two, just iterate the number every month.
+    base_ver = 245
+    last_scan = datetime.strptime('Jun 20 2022', '%b %d %Y')
+    delta = relativedelta.relativedelta(datetime.now().date(), last_scan.date())
+    return base_ver + delta.months
 
 
 releaseNotes = requests.get(releaseNotesUrl, headers=headers)
