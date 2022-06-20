@@ -32,7 +32,7 @@ jobs:
 
       - name: Install required libraries
         run: |
-         python -m pip install requests remotezip
+         python -m pip install requests remotezip python-dateutil
 
 
       - name: Collect versions and save
