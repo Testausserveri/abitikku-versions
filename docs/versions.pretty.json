@@ -43,6 +43,13 @@
             "beta": false
         },
         {
+            "versionName": "SERVER2003K",
+            "versionCode": 227,
+            "releaseDate": "2020-01-17T10:36:52",
+            "url": "https://static.abitti.fi/etcher-usb/releases/227/ktp-etcher.zip",
+            "beta": false
+        },
+        {
             "versionName": "SERVER2005U",
             "versionCode": 228,
             "releaseDate": "2020-01-28T10:36:16",
