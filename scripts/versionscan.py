@@ -48,7 +48,7 @@ if releaseNotes.status_code != 200:
     exit(-1)
 
 productionTable = [(x[0] if len(x) > 0 else None) for x in releasePattern.findall(releaseNotes.text)]
-print("Production releases: "+str(len(productionTable)))
+print("Production releases: ", productionTable)
 
 def extractMetaData(zip_url, code):
     zipFile = remotezip.RemoteZip(zip_url)
