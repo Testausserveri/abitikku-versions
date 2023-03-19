@@ -39,7 +39,7 @@ def getLatestVersion():
     base_ver = 245
     last_scan = datetime.strptime('Jun 20 2022', '%b %d %Y')
     delta = relativedelta.relativedelta(datetime.now().date(), last_scan.date())
-    return base_ver + delta.months
+    return base_ver + delta.months*2
 
 
 releaseNotes = requests.get(releaseNotesUrl, headers=headers)
