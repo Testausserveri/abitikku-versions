@@ -56,3 +56,11 @@ jobs:
         id: nothing_committed
         if: false == contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
         run: git push
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        if: false == contains(steps.can_commit.outputs.commit_message, 'nothing to commit')
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ABITIKKU_FE49D }}'
+          channelId: live
+          projectId: abitikku-fe49d
