@@ -276,6 +276,13 @@
             "beta": false
         },
         {
+            "versionName": "ABITTI2143J",
+            "versionCode": 239,
+            "releaseDate": "2021-10-29T16:07:06",
+            "url": "https://static.abitti.fi/etcher-usb/releases/239/koe-etcher.zip",
+            "beta": false
+        },
+        {
             "versionName": "ABITTI21443",
             "versionCode": 240,
             "releaseDate": "2021-11-04T16:57:48",
