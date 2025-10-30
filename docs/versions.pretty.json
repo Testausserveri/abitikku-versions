@@ -250,7 +250,7 @@
             "versionCode": 265,
             "releaseDate": "2025-10-28T16:24:40",
             "url": "https://static.abitti.fi/etcher-usb/releases/265/ktp-etcher.zip",
-            "beta": true
+            "beta": false
         }
     ],
     "koe": [
@@ -525,7 +525,7 @@
             "versionCode": 264,
             "releaseDate": "2025-10-16T12:38:42",
             "url": "https://static.abitti.fi/etcher-usb/releases/264/koe-etcher.zip",
-            "beta": true
+            "beta": false
         }
     ]
 }
